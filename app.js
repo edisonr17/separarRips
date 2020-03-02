@@ -65,7 +65,7 @@ $(document).ready(function () {
             codigoHabilidation = lineaActualArray[0];
             fechaFactura = lineaActualArray[5];
 
-            makeAF(fileName, lineaActualArray, codigoHabilidation, fechaFactura, lineaActualArray[4]);
+            makeAF(fileName+".txt", lineaActualArray, codigoHabilidation, fechaFactura, lineaActualArray[4]);
             makeAC(archivosRips[obtenerIndice('AC', files)], lineaActualArray[4], codigoHabilidation, fechaFactura, lineaActualArray[4]);
             makeAH(archivosRips[obtenerIndice('AH', files)], lineaActualArray[4], codigoHabilidation, fechaFactura, lineaActualArray[4]);
             makeAM(archivosRips[obtenerIndice('AM', files)], lineaActualArray[4], codigoHabilidation, fechaFactura, lineaActualArray[4]);
@@ -94,7 +94,7 @@ $(document).ready(function () {
                   console.log("archivo " + response + "creado");
                 }
               });
-              if (queueData.fileName.indexOf("CT") < 0 ) {
+              if (queueData.fileName.indexOf("CT") < 0  && queueData.count > 0  ) {
                 var linea = queueData.codigoHabilidation + "," + queueData.fechaFactura + "," + queueData.fileName.substring(0, 2) + queueData.factura + "," + queueData.count + "\n";
                 
                 var ctFactura = datosCT.get(queueData.factura);
@@ -233,7 +233,7 @@ $(document).ready(function () {
 
 
   function makeAF(fileName, data, codigoHabilidation, fechaFactura, factura) {
-    var string = data[0] + "," + data[1] + "," + data[2] + "," + data[3] + "," + data[4] + "," + data[5] + "," + data[6] + "," + data[7] + "," + data[9] + "," + data[10] + "," + data[11] + "," + data[12] + "," + data[13];
+    var string = data[0] + "," + data[1] + "," + data[2] + "," + data[3] + "," + data[4] + "," + data[5] + "," + data[6] + "," + data[7] + ","+ data[8] + "," + data[9] + "," + data[10] + "," + data[11] + "," + data[12] + "," + data[13]+ "," + data[14]+ "," + data[15]+ "," + data[16];
     downloadFile(fileName, {
       data: string,
       count: 1
@@ -398,19 +398,6 @@ $(document).ready(function () {
 
 
   }
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
